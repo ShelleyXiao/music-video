@@ -99,7 +99,7 @@ static int get_channel_mask(int channels ) {
     return channelMask;
 }
 
-static int opensl_es_sample_rate(int sampleRate) {
+static int opensl_get_sample_rate(int sampleRate) {
     int samplesPerSec = SL_SAMPLINGRATE_44_1;
     switch (sampleRate) {
         case 8000:
