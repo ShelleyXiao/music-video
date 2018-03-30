@@ -103,7 +103,7 @@ static int opensl_get_sample_rate(int sampleRate) {
     int samplesPerSec = SL_SAMPLINGRATE_44_1;
     switch (sampleRate) {
         case 8000:
-            samplesPerSec = SL_SAMPLINGRATE_8:
+            samplesPerSec = SL_SAMPLINGRATE_8;
             break;
         case 11025:
             samplesPerSec = SL_SAMPLINGRATE_11_025;

@@ -54,7 +54,7 @@ typedef struct AudioPacketList {
 } AudioPacketList;
 
 
-inline void buildPaketFromBuffer(AudioPacket *audioPacket, stort *samples, int sampleSize) {
+inline void buildPaketFromBuffer(AudioPacket *audioPacket, short *samples, int sampleSize) {
     short* packetBuffer = new short[sampleSize];
     if(NULL != packetBuffer) {
         memcpy(packetBuffer, samples, sampleSize * 2);

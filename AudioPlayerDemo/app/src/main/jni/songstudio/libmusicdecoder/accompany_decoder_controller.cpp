@@ -64,7 +64,7 @@ void AccompanyDecoderController::initAccompanyDecoder(const char *accompanyPath)
 
 /** 根据伴奏文件与原唱文件得到采样率以及比特率赋值给全局变量，
  * 并且将伴奏文件的采样率与比特率放入metaData返回 **/
-virtual int
+int
 AccompanyDecoderController::getMusicMeta(const char *accompanyPath, const char *originalSongPath,
                                          int *accompanyMetaData) {
     AccompanyDecoder *accompanyDecoder = new AccompanyDecoder();
@@ -86,7 +86,7 @@ AccompanyDecoderController::init(const char *accompanyPath, const char *original
     int accompanyByteCountSize =
             accompanySampleRate * CHANNEL_PER_FRAME * BITS_PER_CHANNEL
             / BITS_PER_BYTE;
-    accompanyPacketBufferSize = (int) ()(accompanyByteCountSize / 2) * packetBufferTimePercent);
+    accompanyPacketBufferSize = (int) ((accompanyByteCountSize / 2) * packetBufferTimePercent);
 
     initAccompanyDecoder(accompanyPath);
 

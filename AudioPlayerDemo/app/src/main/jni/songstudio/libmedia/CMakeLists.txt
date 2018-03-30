@@ -1,24 +1,30 @@
 cmake_minimum_required(VERSION 3.4.1)
 
-set(LIBFFMEPG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/3rparty/ffmpeg/include")
+project(media)
+
+set(LIBFFMEPG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/../3rparty/ffmpeg/include")
 include_directories(${LIBFFMEPG_INCLUDE_DIR})
 
+set(LIBRARY_OUTPUT_PATH  ${PROJECT_SOURCE_DIR}/${ANDROID_ABI})
+
 set(SRC_LIST
-    	sound_service.cpp
-    	opensl_es_context.cpp
+    	 ${PROJECT_SOURCE_DIR}/sound_service.cpp
+    	 ${PROJECT_SOURCE_DIR}/opensl_es_context.cpp
 )
 
 add_library(media
-            STATIC
             ${SRC_LIST}
             )
 
+message("media: ${PROJECT_SOURCE_DIR}")
+
 find_library(OPENSL_ES_LIBRARY OpenSLES)
 
-LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/libmusicdecoder);
+LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/../libmusicdecoder)
+link_libraries(libmusicdecoder.a)
 
-add_library(musicdecoder STATIC IMPORTED)
-set_property(TARGET musicdecoder PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libflower.so")
+#add_library(musicdecoder STATIC IMPORTED)
+#set_property(TARGET musicdecoder PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libflower.so")
 
 
 ADD_DEFINITIONS(
@@ -30,5 +36,5 @@ ADD_DEFINITIONS(
 
 target_link_libraries( # Specifies the target library.
                     media
-                    musicdecoder
+                    #musicdecoder
                     ${OPENSL_ES_LIBRARY})

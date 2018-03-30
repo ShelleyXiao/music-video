@@ -5,7 +5,6 @@
 #include <SLES/OpenSLES.h>
 #include "sound_service.h"
 
-#define LOG_TAG "SoundService"
 
 SLresult SoundService::RegisterPlayerCallback() {
     return (*slientAudioPlayerBufferQueue)->RegisterCallback(audioPlayerBufferQueue,
@@ -16,7 +15,7 @@ SLresult SoundService::RegisterSlientPlayerCallback() {
     return (*slientAudioPlayerBufferQueue)->RegisterCallback(slientAudioPlayerBufferQueue, PlayerCallback, this); // player context
 }
 
-static SoundService *SoundService::instance = new SoundService();
+SoundService *SoundService::instance = new SoundService();
 
 SoundService *SoundService::GetInstance() {
     return instance;
@@ -37,7 +36,9 @@ void SoundService::setOnCompletionCallback(JavaVM *g_jvm, jobject obj) {
 }
 
 void
-SoundService::initSongDecoder(const char *accompanyPath, const char *originalPath, float percent);
+SoundService::initSongDecoder(const char *accompanyPath, const char *originalPath, float percent) {
+
+}
 
 void SoundService::initSongDecoder(const char *accompanyPath, float percent) {
     decoderController = new AccompanyDecoderController();

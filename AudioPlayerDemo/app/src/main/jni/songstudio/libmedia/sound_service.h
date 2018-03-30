@@ -133,7 +133,7 @@ private:
         int samplesPerSec = opensl_get_sample_rate(accompanySampleRate);
         SLDataFormat_PCM dataSourceFormat = { SL_DATAFORMAT_PCM, // format type
                                               2, // channel count
-                                              samplesPerSec, // samples per second in millihertz
+                                              (SLuint32)samplesPerSec, // samples per second in millihertz
                                               SL_PCMSAMPLEFORMAT_FIXED_16, // bits per sample
                                               SL_PCMSAMPLEFORMAT_FIXED_16, // container size
                                               SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT, // channel mask
@@ -186,7 +186,7 @@ private:
         int samplesPerSec = opensl_get_sample_rate(accompanySampleRate);
         SLDataFormat_PCM dataSourceFormat = { SL_DATAFORMAT_PCM, // format type
                                               2, // channel count
-                                              samplesPerSec, // samples per second in millihertz
+                                              (SLuint32)samplesPerSec, // samples per second in millihertz
                                               SL_PCMSAMPLEFORMAT_FIXED_16, // bits per sample
                                               SL_PCMSAMPLEFORMAT_FIXED_16, // container size
                                               SL_SPEAKER_FRONT_LEFT | SL_SPEAKER_FRONT_RIGHT, // channel mask

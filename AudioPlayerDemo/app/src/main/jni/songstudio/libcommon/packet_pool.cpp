@@ -126,7 +126,9 @@ int PacketPool::getAudioPacket(AudioPacket **audioPacket, bool block) {
     return result;
 }
 
-void PacketPool::pushAudioPacketToQueue(AudioPacket *audioPacket);
+void PacketPool::pushAudioPacketToQueue(AudioPacket *audioPacket) {
+    audioPacketQueue->put(audioPacket);
+}
 
 void PacketPool::clearAudioPacketToQueue() {
     audioPacketQueue->flush();

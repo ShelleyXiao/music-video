@@ -175,7 +175,7 @@ int AccompanyDecoder::readFrame() {
         readFrameCode = av_read_frame(avFormatContext, &packet);
         if (readFrameCode > 0) {
             if (packet.stream_index == stream_index) {
-                int len = avcodec_decode_audio3(avCodecContext, pAudioFrame,
+                int len = avcodec_decode_audio4(avCodecContext, pAudioFrame,
                                                 &gotFrame, &packet);
                 if (len < 0) {
                     LOGI("decode audio error, skip packet");
