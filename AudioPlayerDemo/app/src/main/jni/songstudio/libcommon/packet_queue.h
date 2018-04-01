@@ -7,6 +7,8 @@
 
 #include <pthread.h>
 #include "../libcommon/CommonTools.h"
+#include <stdlib.h>
+#include <string.h>
 
 #define LOG_TAG "PacketQueue"
 

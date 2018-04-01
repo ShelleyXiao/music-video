@@ -4,7 +4,7 @@ project(common)
 
 set(LIBRARY_OUTPUT_PATH  ${PROJECT_SOURCE_DIR}/${ANDROID_ABI})
 
-add_library(common
+add_library(libcommon
             ${PROJECT_SOURCE_DIR}/packet_queue.cpp
             ${PROJECT_SOURCE_DIR}/packet_pool.cpp
 )
